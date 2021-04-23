@@ -1,9 +1,19 @@
-process.stdout.write('prompt > ');
+const pwdFunc = require("./pwd");
+const lsFunc = require("./ls");
 
-process.stdin.on('data', (data) => {
-    const cmd = data.toString().trim();
+process.stdout.write("prompt > ");
+const userInput = process.stdin.on("data", (data) => {
+  if (data === "pwd") {
+    pwdFunc();
+  }
+}); //  pwdFunc();
 
-    process.stdout.write(process.cwd());
-    process.stdout.write('\nprompt > ');
+// const cmd = data.toString().trim();
 
-});
+// process.stdout.write('You typed: ' + cmd);
+//process.stdout.write(process.cwd());
+
+//process.stdout.write("\nprompt > ");
+
+//pwdFunc();
+//lsFunc();
